@@ -1,5 +1,8 @@
 package com.example.android_to_kmp.ui.home
 
+import android_to_kmp.composeapp.generated.resources.Res
+import android_to_kmp.composeapp.generated.resources.ic_android
+import android_to_kmp.composeapp.generated.resources.sunny_24px
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,12 +15,13 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Divider
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Divider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -47,8 +51,12 @@ fun TeamWeatherWidget(
             .fillMaxWidth()
             .padding(top = 16.dp),
         shape = RoundedCornerShape(16.dp),
-        backgroundColor = MaterialTheme.colors.primary,
-        elevation = 6.dp
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.primary
+        ),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 6.dp
+        )
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
@@ -61,15 +69,15 @@ fun TeamWeatherWidget(
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
                         text = city.value,
-                        style = MaterialTheme.typography.h6,
+                        style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colors.onPrimary
+                        color = MaterialTheme.colorScheme.onPrimary
                     )
 
                     Text(
                         text = weatherCondition.value,
-                        style = MaterialTheme.typography.body1,
-                        color = MaterialTheme.colors.onPrimary.copy(alpha = 0.8f)
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.8f)
                     )
                 }
 
@@ -78,11 +86,11 @@ fun TeamWeatherWidget(
                     modifier = Modifier
                         .size(48.dp)
                         .clip(RoundedCornerShape(12.dp))
-                        .background(MaterialTheme.colors.onPrimary.copy(alpha = 0.2f)),
+                        .background(MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.2f)),
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
-                        painter = painterResource("drawable/sunny_24px.xml"),
+                        painter = painterResource(android_to_kmp.composeapp.generated.resources.Res.drawable.sunny_24px),
                         contentDescription = "Weather icon",
                         modifier = Modifier.size(32.dp),
                         tint = Color.White
@@ -95,9 +103,9 @@ fun TeamWeatherWidget(
             // Temperature display
             Text(
                 text = temperature.value,
-                style = MaterialTheme.typography.h4,
+                style = MaterialTheme.typography.headlineLarge,
                 fontWeight = FontWeight.ExtraBold,
-                color = MaterialTheme.colors.onPrimary
+                color = MaterialTheme.colorScheme.onPrimary
             )
         }
     }
@@ -120,8 +128,8 @@ fun HomeScreen(
                 .padding(16.dp)
                 .fillMaxWidth(0.9f),
             shape = MaterialTheme.shapes.medium,
-            elevation = 8.dp,
-            color = MaterialTheme.colors.surface
+            shadowElevation = 8.dp,
+            color = MaterialTheme.colorScheme.surface
         ) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
@@ -129,7 +137,7 @@ fun HomeScreen(
             ) {
                 // Android mascot image
                 Image(
-                    painter = painterResource("drawable/ic_android.xml"),
+                    painter = painterResource(android_to_kmp.composeapp.generated.resources.Res.drawable.ic_android),
                     contentDescription = "Android mascot",
                     modifier = Modifier
                         .size(180.dp)
@@ -142,24 +150,24 @@ fun HomeScreen(
                         .padding(vertical = 8.dp)
                         .fillMaxWidth(0.7f),
                     thickness = 2.dp,
-                    color = MaterialTheme.colors.primary.copy(alpha = 0.5f)
+                    color = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
                 )
 
                 // Text with improved styling
                 Text(
                     text = text,
                     modifier = Modifier.padding(top = 16.dp, bottom = 8.dp),
-                    style = MaterialTheme.typography.h5,
+                    style = MaterialTheme.typography.headlineMedium,
                     textAlign = TextAlign.Center,
-                    color = MaterialTheme.colors.onSurface
+                    color = MaterialTheme.colorScheme.onSurface
                 )
 
                 // Subtitle text
                 Text(
                     text = "Welcome to Android Workgroup",
-                    style = MaterialTheme.typography.body1,
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.Center,
-                    color = MaterialTheme.colors.onSurface.copy(alpha = 0.7f)
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
 
                 // Team Weather Widget

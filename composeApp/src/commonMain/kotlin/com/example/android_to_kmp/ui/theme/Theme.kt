@@ -1,34 +1,30 @@
 package com.example.android_to_kmp.ui.theme
 
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
-private val LightColors = lightColors(
+private val LightColors = lightColorScheme(
     primary = Color(0xFF6200EE),
-    primaryVariant = Color(0xFF3700B3),
-    secondary = Color(0xFF03DAC5),
-    secondaryVariant = Color(0xFF018786),
-    background = Color.White,
-    surface = Color.White,
     onPrimary = Color.White,
+    secondary = Color(0xFF03DAC5),
     onSecondary = Color.Black,
+    background = Color.White,
     onBackground = Color.Black,
+    surface = Color.White,
     onSurface = Color.Black
 )
 
-private val DarkColors = darkColors(
+private val DarkColors = darkColorScheme(
     primary = Color(0xFFBB86FC),
-    primaryVariant = Color(0xFF3700B3),
-    secondary = Color(0xFF03DAC5),
-    secondaryVariant = Color(0xFF018786),
-    background = Color.Black,
-    surface = Color(0xFF121212),
     onPrimary = Color.Black,
+    secondary = Color(0xFF03DAC5),
     onSecondary = Color.Black,
+    background = Color.Black,
     onBackground = Color.White,
+    surface = Color(0xFF121212),
     onSurface = Color.White
 )
 
@@ -40,10 +36,10 @@ fun AppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val colors = if (darkTheme) DarkColors else LightColors
+    val colorScheme = if (darkTheme) DarkColors else LightColors
 
     MaterialTheme(
-        colors = colors,
+        colorScheme = colorScheme,
         content = content
     )
 }

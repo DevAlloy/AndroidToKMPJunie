@@ -3,8 +3,8 @@ package com.example.android_to_kmp.ui.dashboard
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
@@ -19,7 +19,7 @@ fun DashboardScreen(
     dashboardViewModel: DashboardViewModel = createViewModel()
 ) {
     val text by dashboardViewModel.text
-    
+
     Box(
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
@@ -27,8 +27,9 @@ fun DashboardScreen(
         Text(
             text = text,
             modifier = Modifier.padding(horizontal = 8.dp),
-            style = MaterialTheme.typography.h5,
-            textAlign = TextAlign.Center
+            style = MaterialTheme.typography.headlineMedium,
+            textAlign = TextAlign.Center,
+            color = MaterialTheme.colorScheme.onSurface
         )
     }
 }

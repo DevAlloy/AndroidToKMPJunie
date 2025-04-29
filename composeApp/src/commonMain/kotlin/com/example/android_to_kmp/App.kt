@@ -2,13 +2,13 @@ package com.example.android_to_kmp
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -31,7 +31,7 @@ fun App() {
     AppTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colors.background
+            color = MaterialTheme.colorScheme.background
         ) {
             MainScreen()
         }
@@ -51,9 +51,9 @@ fun MainScreen() {
 
     Scaffold(
         bottomBar = {
-            BottomNavigation {
+            NavigationBar {
                 items.forEach { screen ->
-                    BottomNavigationItem(
+                    NavigationBarItem(
                         icon = { 
                             Icon(
                                 painter = painterResource(screen.resourceId), 
@@ -70,7 +70,7 @@ fun MainScreen() {
     ) { innerPadding ->
         Surface(
             modifier = Modifier.padding(innerPadding).fillMaxSize(),
-            color = MaterialTheme.colors.background
+            color = MaterialTheme.colorScheme.background
         ) {
             when (currentScreen) {
                 Screen.Home -> HomeScreen()
